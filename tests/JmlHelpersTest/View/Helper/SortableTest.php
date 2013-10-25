@@ -18,37 +18,38 @@ class SortableTest extends PHPUnit_Framework_TestCase
      * @var HelperPluginManager
      */
     private $pluginManager;
+    /**
+     * @var Sortable
+     */
+    private $helper;
 
     /**
      * @covers Sortable
      */
     public function testSortable()
     {
-        $helper = new Sortable();
-        $helper->setServiceLocator($this->pluginManager);
-
         $this->request->setUri('http://example.com');
-        $url = $helper->__invoke('foo');
+        $url = $this->helper->__invoke('foo');
         $this->assertEquals($url, 'http://example.com/?sort=foo&direction=asc');
 
         $this->request->setUri('http://example.com?sort=foo');
-        $url = $helper->__invoke('foo');
+        $url = $this->helper->__invoke('foo');
         $this->assertEquals($url, 'http://example.com/?sort=foo&direction=asc');
 
         $this->request->setUri('http://example.com?sort=foo&direction=asc');
-        $url = $helper->__invoke('foo');
+        $url = $this->helper->__invoke('foo');
         $this->assertEquals($url, 'http://example.com/?sort=foo&direction=desc');
 
         $this->request->setUri('http://example.com?sort=foo&direction=desc');
-        $url = $helper->__invoke('foo');
+        $url = $this->helper->__invoke('foo');
         $this->assertEquals($url, 'http://example.com/');
 
         $this->request->setUri('http://example.com?sort=foo&direction=asc');
-        $url = $helper->__invoke('baz');
+        $url = $this->helper->__invoke('baz');
         $this->assertEquals($url, 'http://example.com/?sort=baz&direction=asc');
 
         $this->request->setUri('http://example.com?sort=foo&direction=desc');
-        $url = $helper->__invoke('baz');
+        $url = $this->helper->__invoke('baz');
         $this->assertEquals($url, 'http://example.com/?sort=baz&direction=asc');
     }
 
@@ -63,5 +64,9 @@ class SortableTest extends PHPUnit_Framework_TestCase
         $pluginManager->setServiceLocator($serviceManager);
 
         $this->pluginManager = $pluginManager;
+
+        $helper = new Sortable();
+        $helper->setServiceLocator($this->pluginManager);
+        $this->helper = $helper;
     }
 }
