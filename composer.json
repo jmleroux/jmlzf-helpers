@@ -3,6 +3,7 @@
     "description": "A collection of ZF2 helpers",
     "homepage": "http://www.github.com/jmleroux/jmlzf-helpers/",
     "type": "library",
+    "license": "MIT",
     "keywords": [
         "module",
         "zf2",
