@@ -1,0 +1,31 @@
+{
+    "name": "jmleroux/jmlzf-helpers",
+    "description": "A collection of ZF2 helpers",
+    "homepage": "http://www.github.com/jmleroux/jmlzf-helpers/",
+    "type": "library",
+    "keywords": [
+        "module",
+        "zf2",
+        "helpers"
+    ],
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "jean-marie leroux",
+            "email": "jmleroux.pro@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "zendframework/zend-servicemanager": ">=2.2.4",
+        "zendframework/zend-http": ">=2.2.4",
+        "zendframework/zend-view": ">=2.2.4",
+        "zendframework/zend-mvc": ">=2.2.4",
+        "zendframework/zend-modulemanager": "2.2.4"
+    },
+    "autoload": {
+        "psr-0": {
+            "JmlHelpers\\": "src/"
+        }
+    }
+}
