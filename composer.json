@@ -24,6 +24,9 @@
         "zendframework/zend-modulemanager": "2.2.4"
     },
     "autoload": {
+        "classmap": [
+            "src/"
+        ],
         "psr-0": {
             "JmlHelpers\\": "src/"
         }
